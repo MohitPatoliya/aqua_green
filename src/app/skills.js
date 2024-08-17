@@ -129,8 +129,8 @@ export function Skills() {
   }, []);
 
   return (
-    <div className="gd_image">
-      <div className="sm:px-8 px-4  max-w-8xl mx-auto overflow-x-hidden ">
+    <div className="gd_image md:pb-32 lg:pb-32 pb-20">
+      <div className="sm:px-8 px-4 xl:px-0  max-w-7xl mx-auto overflow-x-hidden ">
         <div
           ref={animationRef}
           className={`container mx-auto mb-20 text-center  ${
