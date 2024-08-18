@@ -129,8 +129,8 @@ export function Skills() {
   }, []);
 
   return (
-    <div className="gd_image md:pb-32 lg:pb-32 pb-20">
-      <div className="sm:px-8 px-4 xl:px-0  max-w-7xl mx-auto overflow-x-hidden ">
+    <div className="gd_image  pb-10">
+      <div className="sm:px-8 px-4   max-w-[1500px] mx-auto overflow-x-hidden ">
         <div
           ref={animationRef}
           className={`container mx-auto mb-20 text-center  ${
@@ -183,10 +183,10 @@ export function Skills() {
             {data.map((item, index) => (
               <div
                 key={index}
-                className="bg-white md:p-8 p-4 w-full rounded-lg transition-transform bg-opacity-40 backdrop-blur-md"
+                className="bg-white md:p-8 p-4 w-full rounded-lg transition-transform bg-opacity-40 backdrop-blur-md "
                 onClick={() => setIsIndex(index === isIndex ? null : index)}
               >
-                <div className="flex w-full items-center">
+                <div className="flex w-full items-center justify-between">
                   <span
                     className="md:text-xl text-base font-semibold "
                     style={{ color: color }}
@@ -205,15 +205,15 @@ export function Skills() {
                   </span>
                 </div>
                 <div
-                  className={`overflow-hidden transition-trasform duration-[1500ms] ease-in-out ${
-                    isIndex === index ? "max-h-[1000px]" : "max-h-0"
+                  className={`overflow-hidden transition-all duration-[300ms] ease-in-out ${
+                    isIndex === index
+                      ? "max-h-[1000px] opacity-100"
+                      : "max-h-0 opacity-0"
                   }`}
                 >
-                  {index === isIndex && (
-                    <div className="mt-5 opacity-100 transition-opacity duration-300 md:text-lg text-sm font-sans text-gray-700">
-                      {item?.decs}
-                    </div>
-                  )}
+                  <div className="mt-5 transition-opacity duration-[100ms] ease-in-out md:text-lg text-sm font-sans text-gray-700">
+                    {item?.decs}
+                  </div>
                 </div>
               </div>
             ))}

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 export function Footer() {
@@ -5,61 +6,31 @@ export function Footer() {
   return (
     <footer class="flex flex-col space-y-10 justify-center  abolute bottom-0 w-full  bg-gradient-to-br from-[#21960c] to-[#89f241] p-4">
       <nav class="flex justify-center flex-wrap gap-6 text-gray-500 font-medium mt-4">
-        <a class="hover:text-gray-100 text-white" href="#">
+        <Link class="hover:text-gray-100 text-white" href="/">
           Home
-        </a>
-        <a class="hover:text-gray-100 text-white" href="#">
+        </Link>
+        <Link class="hover:text-gray-100 text-white" href="/about">
           About
-        </a>
-        <a class="hover:text-gray-100 text-white" href="#">
-          Services
-        </a>
-        <a class="hover:text-gray-100 text-white" href="#">
-          Media
-        </a>
-        <a class="hover:text-gray-100 text-white" href="#">
+        </Link>
+        <Link class="hover:text-gray-100 text-white" href="/products">
+          Products
+        </Link>
+        <Link class="hover:text-gray-100 text-white" href="#">
+          Quality Process
+        </Link>
+        <Link class="hover:text-gray-100 text-white" href="#">
+          Testimonials
+        </Link>
+        <Link class="hover:text-gray-100 text-white" href="#">
           Gallery
-        </a>
-        <a class="hover:text-gray-100 text-white" href="#">
+        </Link>
+        <Link class="hover:text-gray-100 text-white" href="#">
           Contact
-        </a>
+        </Link>
       </nav>
 
-      <div class="flex justify-center space-x-5">
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://img.icons8.com/fluent/30/000000/facebook-new.png" />
-        </a>
-        <a
-          href="https://linkedin.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://img.icons8.com/fluent/30/000000/linkedin-2.png" />
-        </a>
-        <a
-          href="https://instagram.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://img.icons8.com/fluent/30/000000/instagram-new.png" />
-        </a>
-        <a
-          href="https://messenger.com"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img src="https://img.icons8.com/fluent/30/000000/facebook-messenger--v2.png" />
-        </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-          <img src="https://img.icons8.com/fluent/30/000000/twitter.png" />
-        </a>
-      </div>
       <p class="text-center hover:text-gray-100 text-white font-medium">
-        &copy; 2022 Company Ltd. All rights reservered.
+        &copy; 2024 Company Ltd. All rights reservered.
       </p>
     </footer>
   );

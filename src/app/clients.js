@@ -98,7 +98,7 @@ export function Clients() {
                     })}
                   </div>
                 </div>
-                <p className="slider__slide-readmore max-w-7xl px-8 !leading-8 !text-base !text-center font-semibold text-gray-700 backdrop-blur-xl ">
+                <p className="slider__slide-readmore max-w-full lg:!text-xl md:!    px-8 !leading-8 !text-base !text-center font-semibold text-gray-700 backdrop-blur-xl ">
                   {slide?.decs}
                 </p>
               </div>

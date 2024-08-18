@@ -45,7 +45,6 @@ const PRODUCTS = [
     desc: "Ecommerce website offering  access to the latest and greatest gadgets and accessories.",
   },
 ];
-console.log('PRODUCTS', PRODUCTS)
 export function Products() {
   return (
     <section className="py-28 px-8 z-40">

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/next-script-for-ga */
 import "./globals.css";
 import { Roboto } from "next/font/google";
-import { Layout, FixedPlugin } from "@/components";
+import { Layout, FixedPlugin, Footer } from "@/components";
 
 const roboto = Roboto({
   subsets: ["latin"],
@@ -9,10 +9,7 @@ const roboto = Roboto({
   display: "swap",
 });
 
-
-export default function RootLayout({
-  children,
-}) {
+export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <head>
@@ -26,6 +23,7 @@ export default function RootLayout({
       <body className={roboto.className}>
         <Layout>
           {children}
+          <Footer />
           <FixedPlugin />
         </Layout>
       </body>

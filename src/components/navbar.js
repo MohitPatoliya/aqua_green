@@ -16,9 +16,10 @@ import {
   PhotoIcon,
   EnvelopeIcon,
 } from "@heroicons/react/24/solid";
-import { useRouter } from 'next/navigation'
-import 'animate.css';
+import { useRouter } from "next/navigation";
+import "animate.css";
 import Image from "next/image";
+import Link from "next/link";
 
 // import Link from "next/navigation";
 
@@ -60,8 +61,6 @@ const NAV_MENU = [
   },
 ];
 
-
-
 function NavItem({ children, href }) {
   return (
     <li>
@@ -80,7 +79,7 @@ function NavItem({ children, href }) {
 
 export function Navbar() {
   const [open, setOpen] = React.useState(false);
-  const router = useRouter()
+  const router = useRouter();
   const handleOpen = () => setOpen((cur) => !cur);
 
   React.useEffect(() => {
@@ -91,21 +90,28 @@ export function Navbar() {
   }, []);
 
   return (
-    <MTNavbar shadow={true} fullWidth className="border-0 sticky top-0 backdrop-blur-lg bg-opacity-5 z-50">
-      <div className="container mx-auto flex items-center justify-between ">
-        <Typography color="blue-gray" className="text-lg font-bold">
-          <Image src={'/logo.png'} width={200} height={150} />
-        </Typography>
+    <MTNavbar
+      shadow={true}
+      fullWidth
+      className="border-0 sticky top-0 backdrop-blur-lg bg-opacity-5 z-50"
+    >
+      <div className=" mx-auto flex items-center justify-between max-w-[1500px]  ">
+        <Link href={"/"}>
+          <Typography color="blue-gray" className="text-lg font-bold">
+            <Image src={"/logo.png"} width={200} height={150} />
+          </Typography>
+        </Link>
         <ul className="ml-10 hidden items-center gap-8 lg:flex">
           {NAV_MENU.map(({ name, icon: Icon, href }) => (
             <NavItem key={name} href={href}>
-              <div className="flex gap-2 cursor-pointer items-center" onClick={() => router.push(href)}>
+              <div
+                className="flex gap-2 cursor-pointer items-center"
+                onClick={() => router.push(href)}
+              >
                 <div>
-                <Icon className="h-5 w-5 " />
+                  <Icon className="h-5 w-5 " />
                 </div>
-                <div className="text-center">
-                {name}
-                </div>
+                <div className="text-center">{name}</div>
               </div>
             </NavItem>
           ))}

@@ -15,150 +15,89 @@ import {
   MapPinIcon,
   GlobeAltIcon,
 } from "@heroicons/react/24/solid";
-import { LocateIcon, Mail, MapPin } from "lucide-react";
+import { Globe, LocateIcon, Mail, MapPin, Phone } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 export function ContactForm() {
+  const [isVisible, setIsVisible] = useState(false);
+  const animationRef = useRef(null);
+  const animationRef2 = useRef(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.5, // Adjust as needed
+      }
+    );
+
+    if (animationRef.current) {
+      observer.observe(animationRef.current);
+    }
+
+    return () => {
+      if (animationRef.current) {
+        observer.unobserve(animationRef.current);
+      }
+    };
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisibleSecond(true);
+          observer.disconnect();
+        }
+      },
+      {
+        threshold: 0.5, // Adjust as needed
+      }
+    );
+
+    if (animationRef2.current) {
+      observer.observe(animationRef2.current);
+    }
+
+    return () => {
+      if (animationRef2.current) {
+        observer.unobserve(animationRef2.current);
+      }
+    };
+  }, []);
+
   return (
     <>
-      <section className="sm:px-8 px-4 py-16 ">
-        <div className="container mx-auto mb-20 text-center max-w-7xl  ">
-          <Typography
-            variant="h1"
-            color="blue-gray"
-            className="block antialiased font-sans mb-2 mt-14 text-[#00b300] xl:text-6xl md:text-3xl text-xl font-bold text-center uppercase"
+      <section className="sm:px-8 px-4 py-10 ">
+        <div className={`container mx-auto mb-10 text-center max-w-7xl  `}>
+          <div
+            className={`block antialiased font-sans mb-2 mt-14 text-[#00b300] xl:text-6xl md:text-3xl text-xl font-bold text-center uppercase animate__animated animate__fadeInLeft ${
+              isVisible
+                ? " animate__animated  animate__fadeInLeft  visible"
+                : "invisible"
+            }`}
+            ref={animationRef}
           >
             Contact Us
-          </Typography>
-          <div className="mx-auto w-full lg:w-10/12 md:text-xl text-sm mt-5 !font-sans !text-gray-700 ">
+          </div>
+          <div
+            className={`mx-auto w-full lg:w-10/12 md:text-xl text-sm mt-5 !font-sans !text-gray-700 animate__animated animate__fadeInRight ${
+              isVisible
+                ? " animate__animated  animate__fadeInRight  visible"
+                : "invisible"
+            }`}
+            ref={animationRef}
+          >
             Ready to get started? Feel free to reach out through the contact
             form, and let&apos;s embark on a journey of innovation and success.
           </div>
         </div>
-        {/* <div>
-          <Card
-            shadow={true}
-            className="container mx-auto border border-gray/50"
-          >
-            <CardBody className="grid grid-cols-1 lg:grid-cols-8 md:gap-10">
-              <div className="w-full col-span-4 rounded-lg h-full py-8 p-5 md:p-16 bg-[#8abdfe]">
-                <Typography variant="h4" color="white" className="mb-2">
-                  Contact Information
-                </Typography>
-                <Typography
-                  variant="lead"
-                  className="mx-auto mb-8 text-base !text-black-500"
-                >
-                  Fill up the form and our Team will get back to you within 24
-                  hours.
-                </Typography>
-                <div className="flex gap-5 mb-3">
-                  <MapPinIcon className="h-6 w-16 text-white" />
-                  <Typography
-                    variant="h6"
-                    color="white"
-                    className="mb-2 w-auto"
-                  >
-                    280 & 281 Shubham Industry, Makana Village – NH # 8, Kamrej
-                    Road, Surat - 394150, Gujarat - India
-                  </Typography>
-                </div>
-                <a href={`tel:+919374725058`}>
-                  <div className="flex gap-5">
-                    <PhoneIcon className="h-6 w-6 text-white" />
-                    <Typography variant="h6" color="white" className="mb-2">
-                      +91-9374725058
-                    </Typography>
-                  </div>
-                </a>
-
-                <a href={`mailto:info@aquagreen.site`}>
-                  <div className="flex my-2 gap-5">
-                    <EnvelopeIcon className="h-6 w-6 text-white" />
-                    <Typography variant="h6" color="white" className="mb-2">
-                      info@aquagreen.site
-                    </Typography>
-                  </div>
-                </a>
-                <div className="flex mb-10 gap-5">
-                  <GlobeAltIcon className="h-6 w-6 text-white" />
-                  <Typography variant="h6" color="white" className="mb-2">
-                    www.aquagreen.site
-                  </Typography>
-                </div>
-                <div className="flex items-center gap-5">
-                  <IconButton variant="text" color="white">
-                    <i className="fa-brands fa-facebook text-lg" />
-                  </IconButton>
-                  <IconButton variant="text" color="white">
-                    <i className="fa-brands fa-instagram text-lg" />
-                  </IconButton>
-                  <IconButton variant="text" color="white">
-                    <i className="fa-brands fa-github text-lg" />
-                  </IconButton>
-                </div>
-              </div>
-              <div className="w-full mt-8 md:mt-0 md:px-10 col-span-4 h-full p-5">
-                <form action="#">
-                  <div className="mb-8 grid gap-4 lg:grid-cols-2">
-                    <Input
-                      color="gray"
-                      size="lg"
-                      variant="static"
-                      label="First Name"
-                      name="first-name"
-                      placeholder="eg. Lucas"
-                      containerProps={{
-                        className: "!min-w-full mb-3 md:mb-0",
-                      }}
-                    />
-                    <Input
-                      color="gray"
-                      size="lg"
-                      variant="static"
-                      label="Last Name"
-                      name="last-name"
-                      placeholder="eg. Jones"
-                      containerProps={{
-                        className: "!min-w-full",
-                      }}
-                    />
-                  </div>
-                  <Input
-                    color="gray"
-                    size="lg"
-                    variant="static"
-                    label="Email"
-                    name="first-name"
-                    placeholder="eg. lucas@mail.com"
-                    containerProps={{
-                      className: "!min-w-full mb-8",
-                    }}
-                  />
-
-                  <Textarea
-                    color="gray"
-                    size="lg"
-                    variant="static"
-                    label="Your Message"
-                    name="first-name"
-                    containerProps={{
-                      className: "!min-w-full mb-8",
-                    }}
-                  />
-                  <div className="w-full flex justify-end">
-                    <Button
-                      className="w-full md:w-fit bg-[#8abdfe]"
-                      color="gray"
-                      size="md"
-                    >
-                      Send message
-                    </Button>
-                  </div>
-                </form>
-              </div>
-            </CardBody>
-          </Card>
-        </div> */}
         <div className="relative isolate bg-white bg-opacity-30 backdrop-blur-xl gd_image1 shadow-xl ">
           <div className="mx-auto grid max-w-7xl grid-cols-1 lg:grid-cols-2">
             <div className="relative px-6 pb-20 pt-24 sm:pt-32 lg:static lg:px-8 lg:py-48">
@@ -210,28 +149,64 @@ export function ContactForm() {
                   to help! */}
                 </p>
                 <dl className="mt-10 space-y-4 text-base leading-7 text-gray-600">
-                  <div className="flex gap-x-4">
+                  <a href="mailto:one@legaliser.com" className="flex gap-x-4">
                     <Mail />
+                    <dd className="text-base text-gray-600 leading-6">
+                      <div className="hover:text-gray-900">
+                        info@aquagreen.site
+                      </div>
+                    </dd>
+                  </a>
+                  <a
+                    href="www.aquagreen.site"
+                    target="blank"
+                    className="flex gap-x-4"
+                  >
+                    <Globe />
+                    <dd className="text-base text-gray-600 leading-6">
+                      <div className="hover:text-gray-900">
+                        www.aquagreen.site
+                      </div>
+                    </dd>
+                  </a>
+                  <div className="flex gap-x-4">
+                    <Phone />
                     <dd className="text-base text-gray-600 leading-6">
                       <a
                         className="hover:text-gray-900"
-                        href="mailto:one@legaliser.com"
+                        href="callto:91-9574057000"
                       >
-                        one@legaliser.com
+                        +91-9574057000
                       </a>
                     </dd>
                   </div>
                   <div className="flex gap-x-4">
+                    <Phone />
+                    <dd className="text-base text-gray-600 leading-6">
+                      <a
+                        className="hover:text-gray-900"
+                        href="callto:+91-9374725058"
+                      >
+                        +91-9374725058
+                      </a>
+                    </dd>
+                  </div>
+                  <a
+                    href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4412.165124639882!2d72.97679317584473!3d21.208600381576286!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be047fc6f9fd3b1%3A0xccdc7e590578eabd!2sAqua%20Green%20Mineral%20Water!5e1!3m2!1sen!2sin!4v1723096509636!5m2!1sen!2sin"
+                    target="blank"
+                    className="flex gap-x-4"
+                  >
                     <dt className="flex-none">
                       <span className="sr-only">Address</span>
                       <MapPin />
                     </dt>
-                    <dd className="text-base text-gray-600 leading-6">
-                      19702 Newark,
-                      <br />
-                      Delaware, USA
-                    </dd>
-                  </div>
+                    <div className="text-base text-gray-600 leading-6">
+                      280 & 281 Shubham Industry, <br />
+                      Makana Village – NH # 8, Kamrej Road, <br />
+                      Surat - 394150, <br />
+                      Gujarat - India
+                    </div>
+                  </a>
                 </dl>
               </div>
             </div>
@@ -248,7 +223,7 @@ export function ContactForm() {
                     <div className="mt-2.5">
                       <input
                         id="firstName"
-                        className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border transition-all duration-300 border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
                         required
                         placeholder="First name"
                         type="text"
@@ -266,7 +241,7 @@ export function ContactForm() {
                     <div className="mt-2.5">
                       <input
                         id="lastName"
-                        className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border transition-all duration-300 border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
                         required
                         placeholder="Last name"
                         type="text"
@@ -285,7 +260,7 @@ export function ContactForm() {
                       <div className="mt-2.5">
                         <input
                           id="email"
-                          className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
+                          className="block w-full rounded-md border transition-all duration-300 border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
                           required
                           placeholder="you@company.com"
                           type="email"
@@ -304,7 +279,7 @@ export function ContactForm() {
                         name="message"
                         id="message"
                         rows="4"
-                        className="block w-full rounded-md border border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border transition-all duration-300 border-gray-300 px-3.5 py-2 text-gray-900 shadow-sm focus:ring-1 focus:outline-none ring-0 focus:ring-[#00b300] focus:border-[#00b300] sm:text-sm sm:leading-6"
                         required
                         placeholder="Leave us a message..."
                       ></textarea>
@@ -313,7 +288,7 @@ export function ContactForm() {
                 </div>
                 <div className="mt-8 flex justify-end">
                   <button
-                    className="transition-all duration-1000 ease-in-out flex items-center gap-2.5 rounded-md bg-gradient-to-br from-[#00b300] to-[#84e984] px-4 py-2 text-base font-semibold text-white shadow-sm hover:bg-opacity-75 w-full justify-center text-center"
+                    className="transition-all duration-1000 ease-in-out flex items-center gap-2.5 rounded-md bg-gradient-to-br from-[#21960c] to-[#89f241] px-4 py-2 text-base font-semibold text-white shadow-sm hover:bg-opacity-75 w-full justify-center text-center"
                     type="submit"
                   >
                     Send
