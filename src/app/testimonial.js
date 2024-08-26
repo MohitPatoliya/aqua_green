@@ -3,95 +3,70 @@
 import React from "react";
 import Image from "next/image";
 import { Typography, Card, CardBody, Avatar } from "@material-tailwind/react";
+import Inquiry from "@/components/inquiry";
 
 export function Testimonial() {
   const [active, setActive] = React.useState(3);
 
   return (
-    <section className="py-12 px-8 lg:py-24">
-      <div className="container max-w-screen-lg mx-auto">
-        <div className="container mx-auto mb-20 text-center">
-          <Typography variant="h2" color="blue-gray" className="mb-4">
-            What Clients Say
-          </Typography>
-          <Typography
-            variant="lead"
-            className="mx-auto w-full px-4 font-normal !text-gray-500 lg:w-8/12"
-          >
-            Discover what clients have to say about their experiences working
-            with me. My client&apos;s satisfaction is my greatest achievement!
-          </Typography>
+    <section class=" relative gd_image1">
+      <div class="py-8  px-4 mx-auto max-w-screen-xl text-center lg:py-16 lg:px-6">
+        <div class="mx-auto max-w-screen-sm">
+          <h2 class="block antialiased font-sans mb-2 mt-14 text-[#00b300] xl:text-6xl md:text-3xl text-xl font-bold text-center uppercase ">Testimonials</h2>
+          {/* <p class="mb-8 font-light text-gray-500 lg:mb-16 sm:text-xl dark:text-gray-400">Explore the whole collection of open-source web components and elements built with the utility classes from Tailwind</p> */}
         </div>
-        <Card color="transparent" shadow={false} className="py-8 lg:flex-row">
-          <CardBody className="w-full lg:gap-10 h-full lg:!flex justify-between ">
-            <div className="w-full mb-10 lg:mb-0">
-              <Typography
-                variant="h3"
-                color="blue-gray"
-                className="mb-4 font-bold lg:max-w-xs"
-              >
-                Mobile App Development
-              </Typography>
-              <Typography className="mb-3 w-full lg:w-8/12 font-normal !text-gray-500">
-                I had the pleasure of working with Lily on a critical web
-                development project, and I can confidently say that their
-                expertise and professionalism exceeded my expectations.
-              </Typography>
-              <Typography variant="h6" color="blue-gray" className="mb-0.5">
-                Michael - Technical Manager
-              </Typography>
-              <Typography
-                variant="small"
-                className="font-normal mb-5 !text-gray-500"
-              >
-                Marketing @ APPLE INC.
-              </Typography>
-              <div className="flex items-center gap-4">
-                <Avatar
-                  variant="rounded"
-                  src="/image/avatar1.jpg"
-                  alt="spotify"
-                  size="sm"
-                  className={`cursor-pointer ${
-                    active === 1 ? "opacity-100" : "opacity-50"
-                  }`}
-                  onClick={() => setActive(1)}
-                />
-                <div className="w-[1px] h-[36px] bg-blue-gray-100 "></div>
-                <Avatar
-                  variant="rounded"
-                  src="/image/avatar2.jpg"
-                  alt="spotify"
-                  size="sm"
-                  className={`cursor-pointer ${
-                    active === 2 ? "opacity-100" : "opacity-50"
-                  }`}
-                  onClick={() => setActive(2)}
-                />
-                <div className="w-[1px] h-[36px] bg-blue-gray-100" />
-                <Avatar
-                  variant="rounded"
-                  src="/image/avatar3.jpg"
-                  alt="spotify"
-                  size="sm"
-                  className={`cursor-pointer ${
-                    active === 3 ? "opacity-100" : "opacity-50"
-                  }`}
-                  onClick={() => setActive(3)}
-                />
-              </div>
-            </div>
-            <div className="h-[21rem] rounded-lg w-full sm:w-[18rem] shrink-0">
-              <Image
-                width={768}
-                height={768}
-                alt="testimonial image"
-                src={`/image/avatar${active}.jpg`}
-                className="h-full rounded-lg w-full object-cover"
-              />
-            </div>
-          </CardBody>
-        </Card>
+        <div className="grid grid-cols-3">
+          <div class="grid mb-8 lg:mb-12 lg:grid-cols-2 lg:col-span-2 col-span-3">
+            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 bg-opacity-50 backdrop-blur-lg border-b border-gray-200 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Naturally Refreshing</h3>
+                <p class="my-4">The aqua green mineral water has a pure, refreshing taste that’s unbeatable.</p>
+                <p class="my-4">I love the stylish, eco-friendly bottle design.</p>
+                <p class="my-4">I love the stylish, eco-friendly bottle design.</p>
+              </blockquote>
+              <figcaption class="flex justify-center items-center space-x-3">
+                <img class="w-9 h-9 rounded-full" src="/defaultPerson.jpg" alt="profile picture" />
+                <div class="space-y-0.5 font-medium dark:text-white text-left">
+                  <div>Hardik Patel</div>
+                  {/* <div class="text-sm font-light text-gray-500 dark:text-gray-400">Developer at Open AI</div> */}
+                </div>
+              </figcaption>
+            </figure>
+            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 bg-opacity-50 backdrop-blur-lg border-b border-gray-200 md:p-12 dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">Perfect Hydration</h3>
+                <p class="my-4">This mineral water tastes incredibly fresh and natural.</p>
+                <p class="my-4"> Keeps me feeling hydrated and energized throughout the day.</p>
+              </blockquote>
+              <figcaption class="flex justify-center items-center space-x-3">
+                <img class="w-9 h-9 rounded-full" src="/defaultPerson.jpg" alt="profile picture" />
+                <div class="space-y-0.5 font-medium dark:text-white text-left">
+                  <div>Pravin Panchal</div>
+                  {/* <div class="text-sm font-light text-gray-500 dark:text-gray-400">Lead designer at Dropbox</div> */}
+                </div>
+              </figcaption>
+            </figure>
+            <figure class="flex flex-col justify-center items-center p-8 text-center bg-gray-50 bg-opacity-50 backdrop-blur-lg border-b border-gray-200 lg:border-b-0 md:p-12 lg:border-r dark:bg-gray-800 dark:border-gray-700">
+              <blockquote class="mx-auto mb-8 max-w-2xl text-gray-500 dark:text-gray-400">
+                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">High-Quality Water</h3>
+                <p class="my-4">The quality of this mineral water is evident in every sip.</p>
+                <p class="my-4">The bottle is lightweight and easy to take anywhere.</p>
+                <p class="my-4"> It’s perfect for staying hydrated during workouts or outdoor activities.</p>
+              </blockquote>
+              <figcaption class="flex justify-center items-center space-x-3">
+                <img class="w-9 h-9 rounded-full" src="/defaultPerson.jpg" alt="profile picture" />
+                <div class="space-y-0.5 font-medium dark:text-white text-left">
+                  <div>Yash Patel</div>
+                  {/* <div class="text-sm font-light text-gray-500 dark:text-gray-400">Software Engineer at Facebook</div> */}
+                </div>
+              </figcaption>
+            </figure>
+
+          </div>
+          <div className="lg:col-span-1 col-span-3">
+            <Inquiry />
+          </div>
+        </div>
       </div>
     </section>
   );

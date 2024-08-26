@@ -276,11 +276,15 @@ body {
   background: url("/testimonial_bg.svg");
   background-size: cover;
 }
+
 .gd_image1 {
   position: relative;
-  width: 100%; /* Adjust width as needed */
-  height: 100%; /* Adjust height as needed */
-  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+  width: 100%;
+  /* Adjust width as needed */
+  height: 100%;
+  /* Adjust height as needed */
+  overflow: hidden;
+  /* Ensure the pseudo-element doesn't overflow */
 }
 
 .gd_image1::before {
@@ -293,16 +297,22 @@ body {
   background: url("/testimonial_bg.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  transform: rotate(180deg); /* Rotate the background image */
-  z-index: -1; /* Ensure the image is behind the content */
+  transform: rotate(180deg);
+  /* Rotate the background image */
+  z-index: 1;
+  /* Ensure the image is behind the content */
 }
+
 .gd_image2 {
   position: relative;
-  width: 100%; /* Adjust width as needed */
-  height: 100%; /* Adjust height as needed */
+  width: 100%;
+  /* Adjust width as needed */
+  height: 100%;
+  /* Adjust height as needed */
   position: absolute;
   z-index: -1;
-  overflow: hidden; /* Ensure the pseudo-element doesn't overflow */
+  overflow: hidden;
+  /* Ensure the pseudo-element doesn't overflow */
 }
 
 .gd_image2::before {
@@ -315,13 +325,20 @@ body {
   background: url("/testimonial_bg_modified.svg");
   background-size: cover;
   background-repeat: no-repeat;
-  transform: rotate(180deg); /* Rotate the background image */
-  z-index: -1; /* Ensure the image is behind the content */
+  transform: rotate(180deg);
+  /* Rotate the background image */
+  z-index: -1;
+  /* Ensure the image is behind the content */
 }
+
 .scroll_hidden {
-  -ms-overflow-style: none; /* Internet Explorer 10+ */
-  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  /* Internet Explorer 10+ */
+  scrollbar-width: none;
+  /* Firefox */
 }
+
 .scroll_hidden::-webkit-scrollbar {
-  display: none; /* Safari and Chrome */
+  display: none;
+  /* Safari and Chrome */
 }

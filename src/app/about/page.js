@@ -7,7 +7,7 @@ import About from "@/components/about";
 
 export default function AboutPage() {
   return (
-    <div className="h-screen">
+    <div className="">
       <Navbar />
       <About />
     </div>

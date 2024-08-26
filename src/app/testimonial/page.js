@@ -6,7 +6,7 @@ const TestimonialPage = () => {
         <>
             <Navbar />
             <Testimonial />
-            <Footer />
+            {/* <Footer /> */}
         </>
     )
 }

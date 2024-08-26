@@ -4,9 +4,9 @@ import Footer from "./footer";
 
 const About = () => {
   return (
-    <div className="">
-      <div className=" ">
-        <div className="bg-white bg-opacity-30 gd_image2 max-h-full  w-full  lg:flex mt-5">
+    <div className="gd_image1">
+      <div className="  z-10 gd_image1 bg-opacity-30 pb-10 ">
+        <div className=" lg:flex mt-5">
           <div className="max-w-[1500px] grid grid-cols-3 lg:gap-8 mx-auto md:px-8 px-4">
             <div className="lg:col-span-2 col-span-3">
               <Typography

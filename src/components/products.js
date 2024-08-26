@@ -15,7 +15,7 @@ const Products = () => {
           sip.
         </div>
       </div>
-      <div className="relative pt-2 lg:pt-2 ">
+      <div className="relative pt-2 lg:pt-2 max-w-[1500px] mx-auto ">
         <div
           className="bg-cover w-full flex justify-center items-center"
           style={{ backgroundImage: "url('/images/mybackground.jpeg')" }}
@@ -68,11 +68,11 @@ const Products = () => {
                 </article>
 
                 <article className="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-                  <a
+                  {/* <a
                     target="_self"
                     href="/blog/slug"
                     className="absolute opacity-0 top-0 right-0 left-0 bottom-0"
-                  ></a>
+                  ></a> */}
                   <div className="relative mb-4 rounded-2xl">
                     <img
                       className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -104,22 +104,22 @@ const Products = () => {
                   </div>
                   <div className="flex justify-between items-center w-full pb-4 mb-auto"></div>
                   <h3 className="font-medium text-xl leading-8">
-                    <a
-                      href="/blog/slug"
+                    <div
                       className="block relative group-hover:text-[#00b300] transition-colors duration-200 "
+
                     >
-                      500 ML Bottle​
-                    </a>
+                      500 ML Bottle
+                    </div>
                   </h3>
                   <div></div>
                 </article>
 
                 <article className="bg-white  p-6 mb-6 shadow transition duration-300 group transform hover:-translate-y-2 hover:shadow-2xl rounded-2xl cursor-pointer border">
-                  <a
+                  {/* <a
                     target="_self"
                     href="/blog/slug"
                     className="absolute opacity-0 top-0 right-0 left-0 bottom-0"
-                  ></a>
+                  ></a> */}
                   <div className="relative mb-4 rounded-2xl">
                     <img
                       className="max-h-80 rounded-2xl w-full object-cover transition-transform duration-300 transform group-hover:scale-105"
@@ -152,12 +152,11 @@ const Products = () => {
                   </div>
                   <div className="flex justify-between items-center w-full pb-4 mb-auto"></div>
                   <h3 className="font-medium text-xl leading-8">
-                    <a
-                      href="/blog/slug"
+                    <div
                       className="block relative group-hover:text-[#00b300] transition-colors duration-200 "
                     >
-                      1 Liter (1000 ML) Bottle​
-                    </a>
+                      1 Liter (1000 ML) Bottle
+                    </div>
                   </h3>
                   <div></div>
                 </article>

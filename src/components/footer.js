@@ -18,13 +18,13 @@ export function Footer() {
         <Link class="hover:text-gray-100 text-white" href="#">
           Quality Process
         </Link>
-        <Link class="hover:text-gray-100 text-white" href="#">
+        <Link class="hover:text-gray-100 text-white" href="/testimonial">
           Testimonials
         </Link>
         <Link class="hover:text-gray-100 text-white" href="#">
           Gallery
         </Link>
-        <Link class="hover:text-gray-100 text-white" href="#">
+        <Link class="hover:text-gray-100 text-white" href="/contact">
           Contact
         </Link>
       </nav>

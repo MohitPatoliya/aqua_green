@@ -47,7 +47,7 @@ const NAV_MENU = [
   {
     name: "Testimonials",
     icon: ChatBubbleLeftRightIcon,
-    href: "/testimonials",
+    href: "/testimonial",
   },
   {
     name: "Gallery",
@@ -135,10 +135,15 @@ export function Navbar() {
       <Collapse open={open}>
         <div className="container mx-auto mt-3 border-t border-gray-200 px-2 pt-4">
           <ul className="flex flex-col gap-4">
-            {NAV_MENU.map(({ name, icon: Icon }) => (
+            {NAV_MENU.map(({ name, href, icon: Icon }) => (
               <NavItem key={name}>
-                <Icon className="h-5 w-5" />
-                {name}
+                <div
+                  className="flex gap-2 cursor-pointer items-center"
+                  onClick={() => router.push(href)}
+                >
+                  <Icon className="h-5 w-5" />
+                  {name}
+                </div>
               </NavItem>
             ))}
           </ul>

@@ -50,7 +50,7 @@ export function Products() {
     <section className="py-28 px-8 z-40">
       <div className="container mx-auto mb-20 text-center">
         <Typography variant="h2" color="blue-gray" className="mb-4">
-          My Productsaadfasdf
+          My Products
         </Typography>
         <Typography
           variant="lead"
